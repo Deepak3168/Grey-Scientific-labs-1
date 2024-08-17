@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['grey-scientific-labs-2.onrender.com/','0.0.0.0']
+ALLOWED_HOSTS = ['grey-scientific-labs-2.onrender.com','0.0.0.0']
 
 
 # Application definition
