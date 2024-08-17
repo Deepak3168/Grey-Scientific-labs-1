@@ -59,7 +59,7 @@ def login(request):
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
     else:
-        response = requests.post(f"{settings.APP2_AUTH_URL}/login", data={
+        response = requests.post(f"{settings.APP1_AUTH_URL}/login", data={
             'email': email,
             'password': password
         })
@@ -219,7 +219,7 @@ class DepartmentListCreateView(generics.ListCreateAPIView):
     serializer_class = DepartmentSerializer
 
 @api_view(['POST'])
-def create_or_update_user_from_app2(request):
+def create_or_update_user_from_app1(request):
     email = request.data.get('email')
     username = request.data.get('username')
     first_name = request.data.get('first_name', '')

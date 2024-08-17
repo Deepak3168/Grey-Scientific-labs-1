@@ -71,7 +71,7 @@ TEMPLATES = [
         },
     },
 ]
-APP2_AUTH_URL = os.environ.get('APP2_AUTH_URL')
+APP1_AUTH_URL = os.environ.get('APP2_AUTH_URL')
 
 WSGI_APPLICATION = 'grey.wsgi.application'
 
