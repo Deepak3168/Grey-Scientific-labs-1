@@ -15,6 +15,6 @@ urlpatterns = [
     path('patients/',PatientListCreateView.as_view(),name='patients'),
     path('patients/<int:pk>',patient_detail,name='patient'),
     path('departments/',DepartmentListCreateView.as_view(),name='departments'),
-    path('createuser/app2',create_or_update_user_from_app2,name="createuser")
+    path('createuser/app2',create_or_update_user_from_app1,name="createuser")
 ]
 
