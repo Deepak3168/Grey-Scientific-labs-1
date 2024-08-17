@@ -23,13 +23,12 @@ import os
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = False
 
-ALLOWED_HOSTS = ['grey-scientific-labs-2.onrender.com','0.0.0.0']
+DEBUG = True
+ALLOWED_HOSTS = ['grey-scientific-labs-2.onrender.com']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles', 
     "django_google_sso",
+    'drf_yasg',
     'users',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist'
