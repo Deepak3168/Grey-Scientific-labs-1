@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://grey-scientific-labs-1.onrender.com','0.0.0.0']
+ALLOWED_HOSTS = ['https://grey-scientific-labs-2.onrender.com','0.0.0.0']
 
 
 # Application definition
@@ -71,7 +71,7 @@ TEMPLATES = [
         },
     },
 ]
-APP1_AUTH_URL = os.environ.get('APP2_AUTH_URL')
+APP1_AUTH_URL = os.environ.get('APP1_AUTH_URL')
 
 WSGI_APPLICATION = 'grey.wsgi.application'
 
