@@ -14,13 +14,14 @@ from pathlib import Path
 from datetime import datetime, timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+import os
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-xksgny058mna2(3oo^8seh&gy^d*0*6r0z1s_65+9e83-2w54q'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
@@ -70,7 +71,7 @@ TEMPLATES = [
         },
     },
 ]
-APP2_AUTH_URL = ""
+APP2_AUTH_URL = os.environ.get('APP2_AUTH_URL')
 
 WSGI_APPLICATION = 'grey.wsgi.application'
 
