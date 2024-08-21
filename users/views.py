@@ -44,7 +44,7 @@ def register(request):
 
 
 User = get_user_model()
-
+@api_view(['POST'])
 def login(request):
     email = request.data.get('email')
     password = request.data.get('password')
