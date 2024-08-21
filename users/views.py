@@ -36,7 +36,7 @@ def register(request):
     user = CustomUser.objects.create(
         email=email,
         password=make_password(password),
-        group=group
+        group=group,
         first_name = first_name,
         last_name = last_name,
         department_name = department_name
