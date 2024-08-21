@@ -21,10 +21,12 @@ from django.contrib.auth.models import Group
 
 @api_view(['POST'])
 def register(request):
-    username = request.data.get('username')
+    email = request.data.get('email')
     password = request.data.get('password')
     group_name = request.data.get('group')
-
+    first_name=request.data.get('first_name', ''),
+    last_name=request.data.get('last_name', ''),
+    department_name = request.data.get('department','')
     try:
         group = Group.objects.get(name=group_name)
     except Group.DoesNotExist:
@@ -32,15 +34,15 @@ def register(request):
 
    
     user = CustomUser.objects.create(
-        username=username,
+        email=email,
         password=make_password(password),
         group=group
+        first_name = first_name,
+        last_name = last_name,
+        department_name = department_name
     )
 
     return Response({'message': 'User registered successfully'})
-
-
-
 
 
 User = get_user_model()
@@ -59,7 +61,7 @@ def login(request):
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
     else:
-        response = requests.post(f"{settings.APP1_AUTH_URL}/login", data={
+        response = requests.post(f"{settings.APP2_AUTH_URL}/login", data={
             'email': email,
             'password': password
         })
@@ -219,7 +221,7 @@ class DepartmentListCreateView(generics.ListCreateAPIView):
     serializer_class = DepartmentSerializer
 
 @api_view(['POST'])
-def create_or_update_user_from_app1(request):
+def create_or_update_user_from_app2(request):
     email = request.data.get('email')
     username = request.data.get('username')
     first_name = request.data.get('first_name', '')
