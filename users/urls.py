@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import login,logout,register,doctor_detail,patient_detail,patient_record_detail,create_or_update_user_from_app1
+from .views import login,logout,register,doctor_detail,patient_detail,patient_record_detail,create_or_update_user_from_app2
 from .views import PatientRecordListCreateView,DoctorsListCreateView,PatientListCreateView,patient_detail,DepartmentListCreateView
 
 
