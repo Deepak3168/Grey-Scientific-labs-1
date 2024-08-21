@@ -21,10 +21,12 @@ from django.contrib.auth.models import Group
 
 @api_view(['POST'])
 def register(request):
-    username = request.data.get('username')
+    email = request.data.get('email')
     password = request.data.get('password')
     group_name = request.data.get('group')
-
+    first_name=request.data.get('first_name', ''),
+    last_name=request.data.get('last_name', ''),
+    department_name = request.data.get('department','')
     try:
         group = Group.objects.get(name=group_name)
     except Group.DoesNotExist:
@@ -32,9 +34,12 @@ def register(request):
 
    
     user = CustomUser.objects.create(
-        username=username,
+        email=email,
         password=make_password(password),
         group=group
+        first_name = first_name,
+        last_name = last_name,
+        department_name = department_name
     )
 
     return Response({'message': 'User registered successfully'})
